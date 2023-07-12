@@ -1,7 +1,5 @@
 class CreateProducts < ActiveRecord::Migration[7.0]
   def change
-<<<<<<< Updated upstream
-=======
     create_table :products do |t|
       t.string :title
       t.text :description
@@ -14,6 +12,5 @@ class CreateProducts < ActiveRecord::Migration[7.0]
 
       t.timestamp
     end
->>>>>>> Stashed changes
   end
 end
