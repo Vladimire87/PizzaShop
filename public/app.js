@@ -1,3 +1,6 @@
-function something() {
-  alert('Hello All!');
+let x = 1
+
+function something () {
+  alert(x)
+  x = x + 1
 }
