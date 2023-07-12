@@ -25,11 +25,11 @@ class AddProducts < ActiveRecord::Migration[7.0]
     Product.create({
       title: 'Veggie', 
       description: 'Fresh tomatoes, onions, arugula, kale, eggplants, bell peppers, spinach, zucchini, mushrooms and more. They all make flavorsome vegetarian pizza toppings. Some vegetables need to be cooked or roasted to bring out their flavors.', 
-      price: 950, 
+      price: 600, 
       size: 30, 
       is_spicy: false, 
       is_veg: false, 
-      is_best_offer: false, 
+      is_best_offer: true, 
       path_to_image: '/images/pizza_01.jpg'
     })
   end
