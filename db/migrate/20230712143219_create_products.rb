@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.boolean :is_best_offer
       t.string :path_to_image
 
-      t.timestamp
+      t.timestamps
     end
   end
 end
