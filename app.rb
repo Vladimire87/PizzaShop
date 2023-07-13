@@ -20,3 +20,9 @@ end
 get "/about" do
 	erb :about
 end
+
+get '/pizza/:title' do
+ title =  params[:title]
+ @pizza = Product.find_by(title:[params[:title]])
+ erb :pizza
+end
