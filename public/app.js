@@ -4,3 +4,7 @@ function something () {
   window.localStorage.setItem('i', x)
   console.log(x)
 }
+
+function add_to_cart (id) {
+  alert('id: ' + id)
+}

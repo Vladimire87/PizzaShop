@@ -1,14 +1,13 @@
 <h2>Welcome to PizzaShop</h2>
 <div class="row">
   <% @products.each do |product| %>
-    <div class="col-sm-6 col-md-4">
+    <div class="col-md-3">
       <div class="thumbnail">
-        <img src="<%= product.path_to_image %>">
+        <a href="/pizza/<%= product.title %>"> <img src="<%= product.path_to_image %>"></a>
         <div class="caption">
-          <h3><a href="/pizza/<%= product.title %>"><%= product.title %> Pizza</a>   <span class="label label-default">New</span></h3>
-          <p><%= product.description %></p>
+          <h4><a href="/pizza/<%= product.title %>"><%= product.title %> Pizza</a>   <span class="label label-default">New</span></h4>
           <p><%= product.price %> Rub</p>
-          <p><a href="" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</a></p>
+          <p><a href="" class="btn btn-primary" role="button" onClick="add_to_cart(<%= product.id %>)"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</a></p>
         </div>
       </div>
     </div>
