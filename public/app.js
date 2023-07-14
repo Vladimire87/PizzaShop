@@ -1,17 +1,12 @@
-function something () {
-  var x = window.localStorage.getItem('i')
-  x = x * 1 + 1
-  window.localStorage.setItem('i', x)
-  console.log(x)
-}
-
 function add_to_cart (id) {
   var key = 'product_' + id
   var x = window.localStorage.getItem(key)
   x = x * 1 + 1
   window.localStorage.setItem(key, x)
+
   console.log('Items in your cart: ' + cart_get_number_of_items())
   console.log('String: ' + cart_get_orders())
+  update_orders_input()
 }
 
 function cart_get_number_of_items () {
@@ -38,4 +33,9 @@ function cart_get_orders () {
     }
   }
   return orders
+}
+
+function update_orders_input () {
+  let orders = cart_get_orders()
+  document.getElementById('orders_input').value = orders
 }

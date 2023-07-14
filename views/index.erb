@@ -6,8 +6,8 @@
         <a href="/pizza/<%= product.title %>"> <img src="<%= product.path_to_image %>"></a>
         <div class="caption">
           <h4><a href="/pizza/<%= product.title %>"><%= product.title %> Pizza</a>   <span class="label label-default">New</span></h4>
-          <p><%= product.price %> Rub</p>
-          <p><a href="" class="btn btn-primary" role="button" onClick="add_to_cart(<%= product.id %>)"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</a></p>
+          <p><%= product.price %> rub.</p>
+          <button class="btn btn-primary" onClick="add_to_cart(<%= product.id %>)"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
         </div>
       </div>
     </div>
