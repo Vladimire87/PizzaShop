@@ -11,16 +11,16 @@ function add_to_cart (id) {
   x = x * 1 + 1
   window.localStorage.setItem(key, x)
 }
-document.addEventListener('DOMContentLoaded', function () {
-  var itemNumber = 0
-  for (const [key, value] of Object.entries(localStorage)) {
-    y = Number(value)
-    itemNumber += y
-  }
-  console.log('Total items: ' + itemNumber)
 
-  var item_count = document.getElementById('item_count')
-  if (item_count) {
-    item_count.textContent = itemNumber
+function cart_get_number_of_items () {
+  let cnt = 0
+  for (let i = 0; i < window.localStorage.length; i++) {
+    let key = window.localStorage.key(i)
+    let value = window.localStorage.getItem(key)
+
+    if (key.indexOf('product_') == 0) {
+      cnt += value * 1
+    }
   }
-})
+  return cnt
+}

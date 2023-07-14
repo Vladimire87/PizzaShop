@@ -26,3 +26,7 @@ get '/pizza/:title' do
  @pizza = Product.find_by(title:[params[:title]])
  erb :pizza
 end
+
+get '/cart' do
+  erb "Hello World"
+end
