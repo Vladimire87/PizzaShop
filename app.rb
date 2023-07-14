@@ -27,6 +27,6 @@ get '/pizza/:title' do
  erb :pizza
 end
 
-get '/cart' do
+post '/cart' do
   erb "Hello World"
 end
