@@ -7,6 +7,7 @@ function add_to_cart (id) {
   console.log('Items in your cart: ' + cart_get_number_of_items())
   console.log('String: ' + cart_get_orders())
   update_orders_input()
+  update_orders_badge()
 }
 
 function cart_get_number_of_items () {
@@ -38,4 +39,9 @@ function cart_get_orders () {
 function update_orders_input () {
   let orders = cart_get_orders()
   document.getElementById('orders_input').value = orders
+}
+
+function update_orders_badge () {
+  let badge = cart_get_number_of_items()
+  document.getElementById('item_count').innerText = badge
 }

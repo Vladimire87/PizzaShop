@@ -28,7 +28,7 @@
           </ul>
           <form action="/cart" method="post" class="navbar-form navbar-right">
             <input type="hidden" name="orders" id="orders_input">
-            <button type="submit" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge" id="item_count"></span></button>
+            <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span class="badge" id="item_count"></span></button>
           </form>
         </div>
         <!--/.nav-collapse -->
@@ -40,5 +40,11 @@
         <%= yield %>
       </div>
     </div>
+    <script type="text/javascript">
+      $(function () {
+        update_orders_input();
+        update_orders_badge ()
+      })
+    </script>
   </body>
 </html>
