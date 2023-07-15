@@ -30,3 +30,8 @@ end
 post '/cart' do
   erb :cart
 end
+
+post '/order' do
+	@order = params[:order]
+  erb "Order: #{@order}"
+end

@@ -41,6 +41,11 @@ function update_orders_input () {
   document.getElementById('orders_input').value = orders
 }
 
+function update_orders_form () {
+  let orders = cart_get_orders()
+  document.getElementById('orders_form').value = orders
+}
+
 function update_orders_badge () {
   let badge = cart_get_number_of_items()
   document.getElementById('item_count').innerText = badge
