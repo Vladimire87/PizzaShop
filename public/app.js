@@ -45,3 +45,18 @@ function update_orders_badge () {
   let badge = cart_get_number_of_items()
   document.getElementById('item_count').innerText = badge
 }
+
+function cart_order_table () {
+  let content = []
+  for (const [key, value] of Object.entries(localStorage)) {
+    console.log(key, value)
+    content.push(`
+    <tr>
+      <td>${key}</td>
+      <td>${value}</td>
+    </tr>
+  `)
+  }
+  let tbody = document.getElementById('table_body')
+  tbody.innerHTML = content.join('')
+}
