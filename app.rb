@@ -9,6 +9,10 @@ set :database, { adapter: 'sqlite3', database: 'pizza.db'}
 class Product < ActiveRecord::Base
 end
 
+class Order < ActiveRecord::Base
+	validates :products, :name, :phone, :address, presence: true
+end
+
 before do
  @products = Product.all
 end
@@ -28,6 +32,7 @@ get '/pizza/:title' do
 end
 
 post '/cart' do
+	order = Order.new
 	orders_input = params[:orders]
 	@orders = parse_orders_line orders_input
 	@orders.each do |i|
@@ -38,8 +43,15 @@ post '/cart' do
 end
 
 post '/order' do
-	@order = params[:order]
-  erb "Order: #{@order}"
+	@order = Order.new params[:order]
+
+	if @order.save
+		erb "Thank you! You Order: #{@order.id}, for: #{@order.name} done."
+	else
+		@error = @order.errors.full_messages.first
+    erb :index
+	end
+
 end
 
 def parse_orders_line orders_input
