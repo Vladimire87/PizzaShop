@@ -1,14 +1,21 @@
 <h3>Your Cart:</h3>
-<%= @orders.inspect%>
 <h3>Your Order:</h3>
 <table class="table table-bordered">
   <thead>
     <tr>
       <th>Pizza</th>
-      <th>Amount</th>
+      <th>Price</th>
+      <th>Qnt</th>
     </tr>
   </thead>
-  <tbody id="table_body">
+  <tbody>
+    <% @orders.each do |i|%>
+      <tr>
+        <td>  <%= i[0].title %></td>
+        <td>  <%= i[0].price %></td>
+        <td>  <%= i[1] %></td>
+      </tr>
+    <%end%>
   </tbody>
 </table>
 <hr>

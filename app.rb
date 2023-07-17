@@ -30,6 +30,10 @@ end
 post '/cart' do
 	orders_input = params[:orders]
 	@orders = parse_orders_line orders_input
+	@orders.each do |i|
+		i[0] = @products.find(i[0])
+	end
+
   erb :cart
 end
 
