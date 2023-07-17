@@ -1,5 +1,4 @@
-<h3>Your Cart:</h3>
-<h3>Your Order:</h3>
+<h4>Your Order:</h4>
 <table class="table table-condensed table-hover table-striped">
   <thead>
     <tr>
@@ -28,27 +27,20 @@
   </tbody>
 </table>
 <hr>
-<div class="col-md-3">
+<div class="col-md-4">
   <div class="row">
     <form action="/order" method="post">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" name="order[name]" placeholder="Name" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="text" class="form-control" name="order[phone]" placeholder="Phone" required>
-      </div>
-      <div class="form-group">
-        <label for="address">address</label>
-        <input type="text" class="form-control" name="order[address]" placeholder="Address" required>
-      </div>
       <input type="hidden" name="order[products]" id="orders_form">
+      <div class="form-group">
+        <input type="text" class="form-control well" name="order[name]" placeholder="Name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control well" name="order[phone]" placeholder="Phone" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control well" name="order[address]" placeholder="Address" required>
+      </div>
       <button type="submit" class="btn btn-primary btn-lg">Order</button>
     </form>
   </div>
 </div>
-<script>
-  cart_order_table ()
-  update_orders_form ()
-</script>
