@@ -1,0 +1,25 @@
+<h3>Orders</h3>
+<table class="table table-condensed table-hover table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Ordered</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% row = 1%>
+    <% @orders.each do |o|%>
+      <tr>
+        <th scope="row"><%=row%></th>
+        <td><%=o.products%></td>
+        <td><%=o.name%></td>
+        <td><%=o.phone%></td>
+        <td><%=o.address%></td>
+      </tr>
+      <%row += 1%>
+    <%end%>
+  </tbody>
+</table>

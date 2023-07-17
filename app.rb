@@ -15,6 +15,7 @@ end
 
 before do
  @products = Product.all
+ @orders = Order.all
 end
 
 get '/' do
@@ -23,6 +24,10 @@ end
 
 get "/about" do
 	erb :about
+end
+
+get "/admin" do
+	erb :admin
 end
 
 get '/pizza/:title' do
