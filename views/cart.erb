@@ -1,6 +1,6 @@
 <h3>Your Cart:</h3>
 <h3>Your Order:</h3>
-<table class="table table-bordered">
+<table class="table table-condensed table-hover table-striped">
   <thead>
     <tr>
       <th>Pizza</th>
@@ -9,13 +9,22 @@
     </tr>
   </thead>
   <tbody>
+    <% total_price = 0%>
+    <% total_qnt = 0%>
     <% @orders.each do |i|%>
       <tr>
         <td>  <%= i[0].title %></td>
         <td>  <%= i[0].price %></td>
         <td>  <%= i[1] %></td>
       </tr>
+      <% total_price += i[0].price * i[1].to_i%>
+      <% total_qnt += i[1].to_i%>
     <%end%>
+    <tr>
+      <td></td>
+      <td> <strong> <%= total_price %></strong> rub</td>
+      <td> <strong><%= total_qnt %></strong> </td>
+    </tr>
   </tbody>
 </table>
 <hr>
