@@ -14,66 +14,56 @@ class Order < ActiveRecord::Base
 end
 
 before do
- @products = Product.all
-
+	@products = Product.all
 end
 
 get '/' do
 	erb :index
 end
 
-get "/about" do
+get '/about' do
 	erb :about
 end
 
-get "/admin" do
+get '/admin' do
 	@orders = Order.all.order("created_at DESC")
 	erb :admin
 end
 
 get '/pizza/:title' do
- title =  params[:title]
- @pizza = Product.find_by(title:[params[:title]])
- erb :pizza
+	@pizza = Product.find_by(title: params[:title])
+	erb :pizza
 end
 
 post '/cart' do
-	order = Order.new
-	orders_input = params[:orders]
-	@orders = parse_orders_line orders_input
-	if @orders.length == 0
+	@orders = parse_orders_line(params[:orders])
+	if @orders.empty?
 		return erb "Cart is Empty"
 	end
-	@orders.each do |i|
-		i[0] = @products.find(i[0])
+
+	@orders.each do |order|
+		order[0] = @products.find(order[0])
 	end
 
-  erb :cart
+	erb :cart
 end
 
 post '/order' do
-	@order = Order.new params[:order]
+	@order = Order.new(params[:order])
 
 	if @order.save
 		erb :order_placed
 	else
 		@error = @order.errors.full_messages.first
-    erb :index
+		erb :index
 	end
-
 end
 
-def parse_orders_line orders_input
-  s1 = orders_input.split(/,/)
-  arr = []
-  s1.each do |x|
-    s2 = x.split(/=/)
-    s3 = s2[0].split(/_/)
-  
-    id = s3[1]
-    cnt = s2[1]
-    arr2 = [id, cnt]
-    arr.push arr2
-  end
-  return arr
+def parse_orders_line(orders_input)
+	arr = []
+	orders_input.split(/,/).each do |order_input|
+		id, cnt = order_input.split(/=/)[0].split(/_/)[1], order_input.split(/=/)[1]
+		arr.push [id, cnt]
+	end
+	arr
 end
