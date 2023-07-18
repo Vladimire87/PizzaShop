@@ -69,5 +69,6 @@ function cart_order_table () {
 function cancel_order () {
   window.localStorage.clear()
   update_orders_badge()
+  document.getElementById('cart').innerText = 'Your Cart is Empty.'
   return false
 }
