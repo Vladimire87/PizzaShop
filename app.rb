@@ -15,7 +15,7 @@ end
 
 before do
  @products = Product.all
- @orders = Order.all
+
 end
 
 get '/' do
@@ -27,6 +27,7 @@ get "/about" do
 end
 
 get "/admin" do
+	@orders = Order.all.order("created_at DESC")
 	erb :admin
 end
 

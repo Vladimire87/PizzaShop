@@ -7,6 +7,7 @@
       <th>Name</th>
       <th>Phone</th>
       <th>Address</th>
+      <th>Created</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%=o.name%></td>
         <td><%=o.phone%></td>
         <td><%=o.address%></td>
+        <td><%=o.created_at.localtime.strftime("%Y-%m-%d %H:%M")%></td>
       </tr>
       <%row += 1%>
     <%end%>
