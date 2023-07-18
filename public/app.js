@@ -65,3 +65,9 @@ function cart_order_table () {
   let tbody = document.getElementById('table_body')
   tbody.innerHTML = content.join('')
 }
+
+function cancel_order () {
+  window.localStorage.clear()
+  update_orders_badge()
+  return false
+}

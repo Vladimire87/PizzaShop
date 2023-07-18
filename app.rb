@@ -51,7 +51,7 @@ post '/order' do
 	@order = Order.new params[:order]
 
 	if @order.save
-		erb "Thank you! You Order: #{@order.id}, for: #{@order.name} done."
+		erb :order_placed
 	else
 		@error = @order.errors.full_messages.first
     erb :index
